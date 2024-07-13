@@ -712,6 +712,10 @@ export function lyric(
   params: { id: string | number } & RequestBaseConfig,
 ): Promise<Response>
 
+export function lyric_new(
+  params: { id: string | number } & RequestBaseConfig,
+): Promise<Response>
+
 export function msg_comments(
   params: {
     uid: string | number
@@ -1307,17 +1311,11 @@ export function yunbei_info(params: RequestBaseConfig): Promise<Response>
 export function yunbei_sign(params: RequestBaseConfig): Promise<Response>
 
 export function yunbei_receipt(
-  params: {
-    limit?: number | string
-    offset?: number | string
-  } & RequestBaseConfig,
+  params: MultiPageConfig & RequestBaseConfig,
 ): Promise<Response>
 
 export function yunbei_expense(
-  params: {
-    limit?: number | string
-    offset?: number | string
-  } & RequestBaseConfig,
+  params: MultiPageConfig & RequestBaseConfig,
 ): Promise<Response>
 
 export function yunbei_tasks(params: RequestBaseConfig): Promise<Response>
@@ -1353,17 +1351,11 @@ export function comment_hug_list(
 ): Promise<Response>
 
 export function topic_sublist(
-  params: {
-    limit?: number | string
-    offset?: number | string
-  } & RequestBaseConfig,
+  params: MultiPageConfig & RequestBaseConfig,
 ): Promise<Response>
 
 export function topic_sublist(
-  params: {
-    limit?: number | string
-    offset?: number | string
-  } & RequestBaseConfig,
+  params: MultiPageConfig & RequestBaseConfig,
 ): Promise<Response>
 
 export function artist_new_mv(
@@ -1501,11 +1493,7 @@ export function vip_growthpoint_get(
 ): Promise<Response>
 
 export function artist_fans(
-  params: {
-    id: number | string
-    limit?: number | string
-    offset?: number | string
-  } & RequestBaseConfig,
+  params: { id: number | string } & MultiPageConfig & RequestBaseConfig,
 ): Promise<Response>
 
 export function digitalAlbum_detail(
@@ -1557,7 +1545,8 @@ export function playlist_track_all(
   params: {
     id: number | string
     s?: number | string
-  } & RequestBaseConfig,
+  } & MultiPageConfig &
+    RequestBaseConfig,
 ): Promise<Response>
 
 export function artist_video(
@@ -1697,3 +1686,5 @@ export function style_artist(
     cursor?: number | string
   } & RequestBaseConfig,
 ): Promise<Response>
+
+export function pl_count(params: RequestBaseConfig): Promise<Response>
